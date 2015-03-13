@@ -80,6 +80,10 @@ Mean_measures <-X_measures %>% group_by(subject,activity) %>% summarise_each(fun
 setwd("..\\..")
 write.table(Mean_measures,file="mean_measures.txt",row.names=FALSE)
 
+# Read the data
+data <- read.table("mean_measures.txt", header = TRUE)
 
+#Display the results
+View(data)
 }
 
