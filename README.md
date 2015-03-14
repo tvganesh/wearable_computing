@@ -1,5 +1,6 @@
 ## README.md - This file provides the steps to run the code
 The code for this project is self-contained
+
 	1. The R code creates a folder 'data'
 	2. The code points to the URL where the data resides and downloads the zip file
 	3. This is then unzipped
