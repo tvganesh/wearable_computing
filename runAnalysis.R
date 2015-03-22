@@ -1,14 +1,17 @@
 library(dplyr)
 
+# Create a directory 'data' if it does not exist
 if(!file.exists("data")) {
   dir.create("data")
 }
 
+# Download the dataset
 fileUrl <-   "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip?accessType=DOWNLOAD" 
+
 #Download zip with wb flag
 download.file(fileUrl, destfile= "./data/dataset.zip",mode="wb")
 
-#Specify the extract folder
+#Specify the extract folder and unzip the contents
 unzip("./data/dataset.zip",  exdir = "./data")
 
 
