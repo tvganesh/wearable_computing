@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+# CODEBOOK.MD
+## Displaying the average of the measurements performed on 30 subjects for 6 activities
+
+This project displays the average values of measures taken on 30 subjects for 6 activities
+
+### Description of variables
+**Subject**: 
+         This signifies the number by which the subject who was involved in the experiment referred to
+         Numeric : 1 to 30
+		 
+**Activity**:  ( 6 values) 
+                   These represent the various activities performed by the 30 subjects and measured by the instruments
+                        LAYING
+=======
 # Displaying the average of the measurements performed on 30 subjects for 6 activities
 
 This project displays the average values of measures taken on 30 subjects for 6 activities
@@ -7,20 +22,33 @@ Subject :
 		 
 Activity:  ( 6 values)
             LAYING
+>>>>>>> bae1234bd4f65b7c36db2f671cb0ac3b45f79383
 			SITTING
 			STANDING
 			WALKING
 			WALKING_DOWNSTAIRS
 			WALKING_UPSTAIRS
 			
+<<<<<<< HEAD
+*Measurements*: 79 values
+             These 79 columns with the the labels tBodyAccMean-X,tBodyAccMean-Y etc represent the sensor readings of the different 
+             accelerometers. These are then grouped by subject & activity and the mean is determined in the columns
+
+=======
 Measurements 79 values
+>>>>>>> bae1234bd4f65b7c36db2f671cb0ac3b45f79383
              tBodyAccMean..X
              tBodyAccMean..Y
 			 ...
 			 ....
 			 
 			 
+<<<<<<< HEAD
+###Implementation:
+**Details**:
+=======
 Implementation:
+>>>>>>> bae1234bd4f65b7c36db2f671cb0ac3b45f79383
                 This project uses dplyr package
 				
 	        1. Create a folder 'data' to store the unzipped contents
@@ -48,7 +76,11 @@ Implementation:
 			14. Merge test_subjects and train_subjects into subjects
 			15. Read the activity labels 
 			      a. activity <- activity_labels.txt
+<<<<<<< HEAD
+		        16. The y_total has the numeric value of the activity labels
+=======
 		    16. The y_total has the numeric value of the activity labels
+>>>>>>> bae1234bd4f65b7c36db2f671cb0ac3b45f79383
 			17. Find all rows which correspond to each numeric value of activity and substitute the  labels     
 			      y_total[a,] = as.character(label[i])
 				  
