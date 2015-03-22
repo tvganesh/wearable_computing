@@ -41,15 +41,17 @@ names <- features$V2
 vnames <- as.vector(names)
 measurements <- gsub("-","",vnames)
 
-# Do a rowwise binf of the test and training sampls
+# Merge the test and training samples. Do a row-wise bind of the test and training samples
 X_total <- rbind(X_test,X_train)
 y_total <- rbind(y_test,y_train)
+
+#Merge the training and test subjects
 subjects <- rbind(test_subject,train_subject)
 
-# Set the colnames
+# Set the colnames with the values of the measurements taken with the different sensors
 colnames(X_total) <- measurements
 
-# Read the activity labels
+# Read the activity labels 
 activity <- read.table("activity_labels.txt")
 labels <- activity$V2
 
@@ -59,24 +61,25 @@ for(i in 1:6) {
   y_total[a,] = as.character(labels[i])
 }
 
-# Create a vector of all columns with mean and std in them
+# Create a vector of all columns with "mean" and "std" in them
 m <- grep("mean",measurements,perl=FALSE)
 n <- grep("std",measurements,perl=FALSE)
 
-# Combine the 2 vectors of all columns
+# Combine the 2 vectors of all columns into a single vector
 o <- c(m,n)
 
-# Subset these columns
+# Subset these columns from the entire data set. These columns deal with all measurements which have 'mean' or 'std' in them
 X_measures <- X_total[,o]
 
-# Add the subject and activity columns
+# Add the subject and activity columns to the dataset
 s <- cbind(subjects,y_total)
 colnames(s) <- c("subject","activity")
 X_measures <- cbind(s,X_measures)
 
-# Compute the mean measures using the dply summarise_each
+# Compute the mean measures using the dplyr summarise_each after group'ing by subject & activity
 Mean_measures <-X_measures %>% group_by(subject,activity) %>% summarise_each(funs(mean))
 
+# Move up directory and write the output into a file 'mean_measures.txt'
 setwd("..\\..")
 write.table(Mean_measures,file="mean_measures.txt",row.names=FALSE)
 
